@@ -1,19 +1,55 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect:'/index',//重定向,根组件重定向到index
+    component: () => import(/* webpackChunkName: "Home" */ '../views/index.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/index',
+    name:'app',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/index.vue')
+  },
+  {
+    path: '/map',
+    name: 'Map',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/Map.vue')
+  },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/Calendar.vue')
+  },
+  {
+    path: '/imgcropping',
+    name: 'ImgCropping',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/ImgCropping.vue')
+  },
+  {
+    path: '/textedit',
+    name: 'textEdit',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/textEdit.vue')
+  },
+  {
+    path: '/table',
+    name: 'table',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/table.vue')
+  },
+  {
+    path: '/selfinfo',
+    name: 'selfInfo',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/selfInfo.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/LoginRegister.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: '/404',
+    component: () => import(/* webpackChunkName: "Home" */ '../views/404.vue')
   }
 ]
 
